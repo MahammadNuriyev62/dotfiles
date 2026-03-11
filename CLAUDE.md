@@ -40,7 +40,7 @@ Every change you make must be tested before you consider it done. This is non-ne
 - Don't push unless asked.
 - When committing, always include the author attribution:
   ```
-  Co-Authored-By: Mahammad Nuriyev <mahammad.nuriyev@gmail.com>
+  Co-Authored-By: MahammadNuriyev62 <maganuriyev@gmail.com>
   ```
 - Use `gh` CLI for GitHub operations (PRs, issues, secrets).
 - Store deployment secrets as GitHub repo secrets, not in code.
