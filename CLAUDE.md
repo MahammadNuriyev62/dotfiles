@@ -29,6 +29,12 @@ Every change you make must be tested before you consider it done. This is non-ne
 3. **Never run destructive operations without asking first.** Deleting services, dropping databases, overwriting environment variables, force-pushing -- always confirm.
 4. **After deploying, verify the deployment succeeded.** Check status, hit the endpoint, look at logs.
 
+### After pushing:
+- Check if the repo has GitHub Actions workflows that trigger on push.
+- If it does, use `gh run list` and `gh run watch` to monitor the run.
+- If the run fails, read the logs with `gh run view --log-failed`, diagnose, fix, and push again.
+- Don't walk away from a push until CI is green or you've told the user it failed and why.
+
 ### Deployment mindset:
 - Assume production is fragile. Treat every deploy action as if a mistake will take down a live service.
 - If you're unsure about the impact of a change, stop and ask.
