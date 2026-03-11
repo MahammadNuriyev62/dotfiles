@@ -3,7 +3,7 @@ Review all uncommitted changes (staged, unstaged, and untracked). Group them int
 Steps:
 1. Run `git status` and `git diff` to understand what changed.
 2. Decide how to split the changes into commits. Explain your plan briefly.
-3. Stage and commit each group. Include `Co-Authored-By: MahammadNuriyev62 <maganuriyev@gmail.com>` in every commit.
+3. Stage and commit each group. Use `--author="MahammadNuriyev62 <maganuriyev@gmail.com>"` on every commit.
 4. Push to the current remote branch.
 5. Monitor the deployment. Figure out how this project deploys:
    a. Check your memory files for notes about this project's deployment platform.

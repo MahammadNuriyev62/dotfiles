@@ -48,10 +48,7 @@ Every change you make must be tested before you consider it done. This is non-ne
 - Don't commit unless asked.
 - Don't push unless asked.
 - Before committing, review the diff yourself. Flag anything suspicious: debug logs, hardcoded secrets, `.env` files, `console.log` spam, commented-out code, TODO hacks, unrelated changes that snuck in. If you spot something, stop and tell the user before committing.
-- When committing, always include the author attribution:
-  ```
-  Co-Authored-By: MahammadNuriyev62 <maganuriyev@gmail.com>
-  ```
+- All commits must be authored by the user. Set `--author="MahammadNuriyev62 <maganuriyev@gmail.com>"` on every commit. Do not add any Co-Authored-By lines for yourself.
 - Use `gh` CLI for GitHub operations (PRs, issues, secrets, releases).
 - Store deployment secrets as GitHub repo secrets, not in code.
 
