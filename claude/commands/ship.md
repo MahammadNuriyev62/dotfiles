@@ -8,7 +8,7 @@ Steps:
 5. Monitor the deployment. Figure out how this project deploys:
    a. Check your memory files for notes about this project's deployment platform.
    b. Check `.github/workflows/` for CI/CD triggered on push. If found, use `gh run list --limit 1` then `gh run watch`.
-   c. If no GitHub Actions, check if you have MCP servers for platforms like Railway, Vercel, Cloudflare. Use them to check deployment status and logs.
+   c. If no GitHub Actions, use the platform's CLI (e.g. `railway`, `vercel`, `flyctl`). Read the CLI's current docs before running commands -- don't guess flags from memory.
    d. If you can't determine the deployment method, ask the user. Save their answer to memory.
 6. If the deployment fails, read logs, diagnose, fix, and repeat from step 1.
 7. Report the final status: commits made, push result, and deployment outcome.

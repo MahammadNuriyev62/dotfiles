@@ -33,7 +33,7 @@ Every change you make must be tested before you consider it done. This is non-ne
 - Figure out how this project gets deployed. Check in this order:
   1. **Memory.** Check your memory files for notes about this project's deployment platform.
   2. **GitHub Actions.** Look in `.github/workflows/` for CI/CD workflows triggered on push. If found, use `gh run list` and `gh run watch` to monitor.
-  3. **External platforms.** Some projects deploy via platforms like Railway, Vercel, or Render that watch the repo directly. GitHub won't show these. If you have MCP servers for these platforms (e.g. Railway MCP), use them to check deployment status and logs.
+  3. **External platforms.** Some projects deploy via platforms like Railway, Vercel, or Render that watch the repo directly. GitHub won't show these. Use the platform's CLI to check deployment status and logs (e.g. `railway logs`, `vercel ls`, `flyctl status`). **Before using any CLI, read its current documentation first.** Don't rely on pretraining knowledge for CLI flags and commands -- it may be outdated.
   4. **If you can't figure it out, ask.** Then save the answer to memory so you know next time.
 - If a deployment fails, read the logs, diagnose, fix, and push again.
 - Don't walk away from a push until the deployment is confirmed healthy or you've told the user it failed and why.
@@ -65,4 +65,5 @@ Every change you make must be tested before you consider it done. This is non-ne
 - Never get comfortable. Always double-check before executing anything that modifies state.
 - Read before you write. Understand existing code before changing it.
 - If something feels off, investigate. Don't push through and hope for the best.
+- **Don't trust your pretraining knowledge for CLI tools, APIs, or libraries.** Read the current docs first. Flags change, commands get deprecated, APIs evolve.
 - When in doubt, ask.
