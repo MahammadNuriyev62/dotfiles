@@ -27,6 +27,20 @@ else
   echo "CLAUDE.md already exists, skipping."
 fi
 
+# ── GitHub CLI ───────────────────────────────────────────────────────
+
+if command -v gh &>/dev/null; then
+  mkdir -p ~/.config/gh
+  cp "$DOTFILES_DIR/gh/config.yml" ~/.config/gh/config.yml
+  echo "gh config installed."
+
+  if ! gh auth status &>/dev/null 2>&1; then
+    echo ""
+    echo "GitHub CLI not authenticated. Run:"
+    echo "  gh auth login"
+  fi
+fi
+
 # ── Lightning AI on_start hook ───────────────────────────────────────
 
 if [ -d ~/.lightning_studio ]; then
