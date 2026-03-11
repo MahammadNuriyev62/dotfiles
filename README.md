@@ -15,7 +15,7 @@ gh auth login
 
 | What | Where | Scope |
 |------|-------|-------|
-| Claude Code settings | `~/.claude/settings.json` | All projects |
+| Claude Code settings + hooks | `~/.claude/settings.json` | All projects |
 | Rules (testing, deployment, memory, git) | `~/CLAUDE.md` | All projects under home |
 | `ship` skill | `~/.claude/skills/ship/` | All projects |
 | `onboard` skill | `~/.claude/skills/onboard/` | Auto-triggers in new projects |
@@ -29,6 +29,10 @@ gh auth login
 - **Memory is immediate.** Save findings as you go, not at the end. Sessions end without warning.
 - **Git is guarded.** Review diffs before committing. Flag secrets, debug logs, unrelated changes.
 - **Docs over pretraining.** Always read current CLI/library docs. Don't trust cached knowledge.
+
+## Hooks
+
+- **`Stop` hook** — Fires after every Claude response where code was modified. A prompt-based check verifies that CLAUDE.md rules were followed (testing done, tools flagged as missing, etc.). If the check fails, Claude automatically continues to fix the violation.
 
 ## Skills
 

@@ -1,5 +1,17 @@
 {
   "autoMemoryEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If code was written or modified, was CLAUDE.md followed? If no code was changed, return {\"ok\": true}. Otherwise return {\"ok\": true} or {\"ok\": false, \"reason\": \"...\"}."
+          }
+        ]
+      }
+    ]
+  }
 }
