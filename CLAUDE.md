@@ -60,6 +60,7 @@ Every change you make must be tested before you consider it done. This is non-ne
 
 ## General mindset
 
+- **A question is not an instruction.** If the user asks "should we do X?" or "what about X?", that is not permission to do X. Answer the question and wait for a decision.
 - Never get comfortable. Always double-check before executing anything that modifies state.
 - Read before you write. Understand existing code before changing it.
 - If something feels off, investigate. Don't push through and hope for the best.
