@@ -1,28 +1,50 @@
 # dotfiles
 
-Bootstrap script for development environments. Clone and run on any new machine.
+Portable dev environment bootstrap. Clone and run once on any new machine. Everything applies globally across all projects.
 
-## Usage
+## Setup
 
 ```bash
 git clone https://github.com/MahammadNuriyev62/dotfiles.git ~/dotfiles
 chmod +x ~/dotfiles/setup.sh
 ~/dotfiles/setup.sh
+gh auth login
 ```
 
-## What it sets up
+## What it installs
 
-- **Claude Code** with settings and a root CLAUDE.md that enforces rigorous testing and cautious deployment
-- **GitHub CLI** config (HTTPS protocol, aliases)
-- **Lightning AI** on_start hook to keep Claude Code installed across restarts
+| What | Where | Scope |
+|------|-------|-------|
+| Claude Code settings | `~/.claude/settings.json` | All projects |
+| Rules (testing, deployment, memory, git) | `~/CLAUDE.md` | All projects under home |
+| `/project:ship` command | `~/.claude/commands/ship.md` | All projects |
+| `onboard` skill | `~/.claude/skills/onboard/` | Auto-triggers in new projects |
+| GitHub CLI config | `~/.config/gh/config.yml` | Global |
+| Lightning AI on_start hook | `~/.lightning_studio/on_start.sh` | Studio restarts |
 
-## MCP servers
+## What the rules enforce
 
-Not pre-installed. The CLAUDE.md instructs Claude to find and suggest appropriate MCP servers based on what the current task requires (browser testing, deployment, etc.).
+- **Testing is mandatory.** Every change must be tested. No exceptions.
+- **Deployment is cautious.** Read state first, verify impact, confirm destructive ops, monitor after pushing.
+- **Memory is immediate.** Save findings as you go, not at the end. Sessions end without warning.
+- **Git is guarded.** Review diffs before committing. Flag secrets, debug logs, unrelated changes.
+- **Docs over pretraining.** Always read current CLI/library docs. Don't trust cached knowledge.
+
+## Commands
+
+- **`/project:ship`** - Reviews changes, splits into meaningful commits, pushes, then monitors deployment (GitHub Actions, Railway, Vercel, whatever the project uses). Fixes and retries if it fails.
+
+## Skills
+
+- **`onboard`** - Auto-triggers when entering a project with no memory. Explores the codebase, figures out the stack, how to run it, how it deploys, and saves everything to memory before writing any code.
 
 ## Secrets
 
-Secrets are never stored in this repo. They live as:
+Never stored in this repo. They live as:
 - GitHub repo secrets (for CI/CD)
 - OAuth flows (remote MCP servers authenticate via browser)
 - `gh auth login` (GitHub CLI)
+
+## Lightning AI
+
+On Lightning AI studios, the `on_start.sh` hook auto-clones this repo and runs setup on new studios. On existing studios with persistent storage, you only run setup once.
