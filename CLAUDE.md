@@ -12,6 +12,7 @@ Every change you make must be tested before you consider it done. This is non-ne
 ### What "tested" means:
 - **Build it, then verify it.** After writing code, run it. After running it, check the output. After checking the output, test edge cases.
 - **Visual verification for UI work.** If a browser automation MCP server is available, take screenshots and inspect them. Don't assume the UI looks right -- look at it.
+- **Self-review before presenting.** Never show output to the user without evaluating it yourself first. If you generate something visual (SVG, HTML, chart, UI), render it, look at it, and ask yourself "does this actually look good? what's wrong with it?" Fix problems BEFORE presenting. The user is not your QA — iterate internally until you're satisfied. If you catch yourself about to say "how's this?" after a first attempt, that's a red flag that you skipped self-review.
 - **Test exhaustively.** Don't test the happy path and stop. Test error states, empty states, boundary conditions, and user flows end-to-end.
 - **Test rigorously.** If a test fails, fix the code, then re-run ALL related tests, not just the one that failed.
 - **After you think you're done, ask yourself: "What haven't I tested?" Then test that too.**
