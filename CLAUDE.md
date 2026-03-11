@@ -42,7 +42,7 @@ Every change you make must be tested before you consider it done. This is non-ne
   ```
   Co-Authored-By: MahammadNuriyev62 <maganuriyev@gmail.com>
   ```
-- Use `gh` CLI for GitHub operations (PRs, issues, secrets).
+- Use `gh` CLI for GitHub operations (PRs, issues, secrets, releases).
 - Store deployment secrets as GitHub repo secrets, not in code.
 
 ## General mindset
