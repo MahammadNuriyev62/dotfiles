@@ -8,7 +8,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "If code was written or modified, was CLAUDE.md followed? If no code was changed, return {\"ok\": true}. Otherwise return {\"ok\": true} or {\"ok\": false, \"reason\": \"...\"}."
+            "prompt": "Check if all code changes follow the CLAUDE.md guidelines in this project. If no code was changed, approve. Otherwise review the changes and determine if they comply."
           }
         ]
       }
