@@ -12,20 +12,17 @@ chmod +x ~/dotfiles/setup.sh
 
 ## What it sets up
 
-- **Claude Code** with settings, MCP servers (Playwright, Context7), and a root CLAUDE.md that enforces rigorous testing
+- **Claude Code** with settings and a root CLAUDE.md that enforces rigorous testing and cautious deployment
 - **GitHub CLI** config (HTTPS protocol, aliases)
-- **Playwright** browsers for visual testing
-- **Lightning AI** on_start hook to keep tools installed across restarts
+- **Lightning AI** on_start hook to keep Claude Code installed across restarts
 
-## Remote MCP servers (no local setup needed)
+## MCP servers
 
-| Server | URL |
-|--------|-----|
-| Railway | `https://railway-mcp.maganuriyev.workers.dev/mcp` |
+Not pre-installed. The CLAUDE.md instructs Claude to find and suggest appropriate MCP servers based on what the current task requires (browser testing, deployment, etc.).
 
 ## Secrets
 
 Secrets are never stored in this repo. They live as:
-- GitHub repo secrets (for CI/CD: `CLOUDFLARE_API_TOKEN`, `RAILWAY_API_TOKEN`, etc.)
-- OAuth flows (Railway MCP authenticates via browser)
+- GitHub repo secrets (for CI/CD)
+- OAuth flows (remote MCP servers authenticate via browser)
 - `gh auth login` (GitHub CLI)

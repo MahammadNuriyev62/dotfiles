@@ -4,41 +4,50 @@
 
 Every change you make must be tested before you consider it done. This is non-negotiable.
 
-### What "tested" means:
-1. **Gather your tools first.** Before starting any task, check what MCP servers and tools are available (Playwright, etc). If something is missing that you need, install it.
-2. **Build it, then verify it.** After writing code, run it. After running it, check the output. After checking the output, test edge cases.
-3. **Use Playwright to visually verify.** For any web UI work, take screenshots with Playwright and inspect them. Don't assume the UI looks right -- look at it.
-4. **Test exhaustively.** Don't test the happy path and stop. Test error states, empty states, boundary conditions, and user flows end-to-end.
-5. **Test rigorously.** If a test fails, fix the code, then re-run ALL related tests -- not just the one that failed.
-6. **Test thoroughly.** After you think you're done, ask yourself: "What haven't I tested?" Then test that too.
+### Before you start any task:
+1. Check what MCP servers and tools are currently available.
+2. If you don't have what you need to test your work (browser automation, API testing, etc.), search for and suggest MCP servers that would let you test properly. Look for well-maintained, widely-used ones. Don't just guess -- verify they exist and are legit.
+3. Don't start coding until you know how you'll verify the result.
 
-### Testing workflow:
-1. Start dev servers if not running
-2. Make changes
-3. Wait for hot reload (2-3 seconds)
-4. Screenshot the result with Playwright
-5. Verify the screenshot looks correct
-6. Test user interactions (click, type, navigate)
-7. Check console/network for errors
-8. Test on different states (logged in/out, empty data, error conditions)
-9. Only then report back as done
+### What "tested" means:
+- **Build it, then verify it.** After writing code, run it. After running it, check the output. After checking the output, test edge cases.
+- **Visual verification for UI work.** If a browser automation MCP server is available, take screenshots and inspect them. Don't assume the UI looks right -- look at it.
+- **Test exhaustively.** Don't test the happy path and stop. Test error states, empty states, boundary conditions, and user flows end-to-end.
+- **Test rigorously.** If a test fails, fix the code, then re-run ALL related tests, not just the one that failed.
+- **After you think you're done, ask yourself: "What haven't I tested?" Then test that too.**
 
 ### If you can't test something:
 - Say so explicitly. Don't skip testing silently.
-- Explain what you would test and how.
+- Explain what you would test, how, and what tools you'd need.
+- Suggest specific MCP servers that would enable the testing.
 
-## MCP Servers
+## Deployment
 
-These are available globally:
-- **Playwright** (`npx @playwright/mcp@latest --caps vision`): Browser automation and screenshots. Use this to verify any web UI changes.
-- **Context7** (`npx -y @upstash/context7-mcp@latest`): Up-to-date library documentation. Use this when working with any library to get current API docs instead of relying on training data.
+### Before deploying anything:
+1. If you don't have MCP servers that let you manage deployments directly, search for and suggest ones that would. For example, platform-specific MCP servers for Railway, Vercel, Cloudflare, etc.
+2. **Double check everything before any deploy action.** Read the current state first. Verify what will change. Confirm it won't break anything running in production.
+3. **Never run destructive operations without asking first.** Deleting services, dropping databases, overwriting environment variables, force-pushing -- always confirm.
+4. **After deploying, verify the deployment succeeded.** Check status, hit the endpoint, look at logs.
 
-Remote MCP servers (configured in Claude web/app):
-- **Railway MCP** (`https://railway-mcp.maganuriyev.workers.dev/mcp`): Manage Railway deployments, services, variables, domains.
+### Deployment mindset:
+- Assume production is fragile. Treat every deploy action as if a mistake will take down a live service.
+- If you're unsure about the impact of a change, stop and ask.
+- Never batch destructive operations. One at a time, verify each.
 
-## General
+## Git and commits
 
 - Don't commit unless asked.
 - Don't push unless asked.
+- When committing, always include the author attribution:
+  ```
+  Co-Authored-By: Mahammad Nuriyev <mahammad.nuriyev@gmail.com>
+  ```
 - Use `gh` CLI for GitHub operations (PRs, issues, secrets).
 - Store deployment secrets as GitHub repo secrets, not in code.
+
+## General mindset
+
+- Never get comfortable. Always double-check before executing anything that modifies state.
+- Read before you write. Understand existing code before changing it.
+- If something feels off, investigate. Don't push through and hope for the best.
+- When in doubt, ask.
