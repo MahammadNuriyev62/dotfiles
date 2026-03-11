@@ -17,7 +17,7 @@ gh auth login
 |------|-------|-------|
 | Claude Code settings | `~/.claude/settings.json` | All projects |
 | Rules (testing, deployment, memory, git) | `~/CLAUDE.md` | All projects under home |
-| `/project:ship` command | `~/.claude/commands/ship.md` | All projects |
+| `ship` skill | `~/.claude/skills/ship/` | All projects |
 | `onboard` skill | `~/.claude/skills/onboard/` | Auto-triggers in new projects |
 | GitHub CLI config | `~/.config/gh/config.yml` | Global |
 | Lightning AI on_start hook | `~/.lightning_studio/on_start.sh` | Studio restarts |
@@ -30,12 +30,9 @@ gh auth login
 - **Git is guarded.** Review diffs before committing. Flag secrets, debug logs, unrelated changes.
 - **Docs over pretraining.** Always read current CLI/library docs. Don't trust cached knowledge.
 
-## Commands
-
-- **`/project:ship`** - Reviews changes, splits into meaningful commits, pushes, then monitors deployment (GitHub Actions, Railway, Vercel, whatever the project uses). Fixes and retries if it fails.
-
 ## Skills
 
+- **`/ship`** - Reviews changes, splits into meaningful commits, pushes, then monitors deployment (GitHub Actions, Railway, Vercel, whatever the project uses). Fixes and retries if it fails.
 - **`onboard`** - Auto-triggers when entering a project with no memory. Explores the codebase, figures out the stack, how to run it, how it deploys, and saves everything to memory before writing any code.
 
 ## Secrets

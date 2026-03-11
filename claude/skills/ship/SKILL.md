@@ -1,3 +1,7 @@
+---
+description: Review changes, split into meaningful commits, push, and monitor deployment
+---
+
 Review all uncommitted changes (staged, unstaged, and untracked). Group them into one or more meaningful commits -- don't lump unrelated changes together, but don't over-split either. Each commit message should be concise and describe the "why".
 
 Steps:

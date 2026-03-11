@@ -1,9 +1,5 @@
 ---
-trigger: auto
-description: Onboard to a new project before making any changes
-match:
-  - when there are no memory files for this project yet
-  - when this is the first interaction with a new codebase
+description: Onboard to a new project before making any changes. Invoke when there are no memory files for this project yet or when this is the first interaction with a new codebase.
 ---
 
 Before writing any code in this project, do the following:

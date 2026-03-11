@@ -12,11 +12,10 @@ if ! command -v claude &>/dev/null; then
   npm install -g @anthropic-ai/claude-code
 fi
 
-mkdir -p ~/.claude/commands ~/.claude/skills
+mkdir -p ~/.claude/skills
 cp "$DOTFILES_DIR/claude/settings.json" ~/.claude/settings.json
-cp "$DOTFILES_DIR/claude/commands/"*.md ~/.claude/commands/ 2>/dev/null || true
 cp -r "$DOTFILES_DIR/claude/skills/"* ~/.claude/skills/ 2>/dev/null || true
-echo "Claude settings, commands, and skills installed."
+echo "Claude settings and skills installed."
 
 # ── CLAUDE.md ────────────────────────────────────────────────────────
 
