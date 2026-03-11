@@ -1,0 +1,15 @@
+{
+  "autoMemoryEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high",
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--caps", "vision"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
