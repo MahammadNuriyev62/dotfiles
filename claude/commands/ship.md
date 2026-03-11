@@ -5,9 +5,10 @@ Steps:
 2. Decide how to split the changes into commits. Explain your plan briefly.
 3. Stage and commit each group. Include `Co-Authored-By: MahammadNuriyev62 <maganuriyev@gmail.com>` in every commit.
 4. Push to the current remote branch.
-5. After pushing, check if this repo has GitHub Actions workflows (look in `.github/workflows/`).
-6. If there are workflows triggered by push, monitor the run:
-   - `gh run list --limit 1` to find the run
-   - `gh run watch` to follow it live
-   - If it fails, read logs with `gh run view --log-failed`, diagnose the issue, fix it, and repeat from step 1.
-7. Report the final status: commits made, push result, and CI outcome.
+5. Monitor the deployment. Figure out how this project deploys:
+   a. Check your memory files for notes about this project's deployment platform.
+   b. Check `.github/workflows/` for CI/CD triggered on push. If found, use `gh run list --limit 1` then `gh run watch`.
+   c. If no GitHub Actions, check if you have MCP servers for platforms like Railway, Vercel, Cloudflare. Use them to check deployment status and logs.
+   d. If you can't determine the deployment method, ask the user. Save their answer to memory.
+6. If the deployment fails, read logs, diagnose, fix, and repeat from step 1.
+7. Report the final status: commits made, push result, and deployment outcome.

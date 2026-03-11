@@ -30,10 +30,13 @@ Every change you make must be tested before you consider it done. This is non-ne
 4. **After deploying, verify the deployment succeeded.** Check status, hit the endpoint, look at logs.
 
 ### After pushing:
-- Check if the repo has GitHub Actions workflows that trigger on push.
-- If it does, use `gh run list` and `gh run watch` to monitor the run.
-- If the run fails, read the logs with `gh run view --log-failed`, diagnose, fix, and push again.
-- Don't walk away from a push until CI is green or you've told the user it failed and why.
+- Figure out how this project gets deployed. Check in this order:
+  1. **Memory.** Check your memory files for notes about this project's deployment platform.
+  2. **GitHub Actions.** Look in `.github/workflows/` for CI/CD workflows triggered on push. If found, use `gh run list` and `gh run watch` to monitor.
+  3. **External platforms.** Some projects deploy via platforms like Railway, Vercel, or Render that watch the repo directly. GitHub won't show these. If you have MCP servers for these platforms (e.g. Railway MCP), use them to check deployment status and logs.
+  4. **If you can't figure it out, ask.** Then save the answer to memory so you know next time.
+- If a deployment fails, read the logs, diagnose, fix, and push again.
+- Don't walk away from a push until the deployment is confirmed healthy or you've told the user it failed and why.
 
 ### Deployment mindset:
 - Assume production is fragile. Treat every deploy action as if a mistake will take down a live service.
